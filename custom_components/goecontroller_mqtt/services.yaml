@@ -1,0 +1,27 @@
+set_config_key:
+  name: Set config key
+  description: Sets a config key to a provided value.
+  fields:
+    serial_number:
+      name: Serial number
+      description: The serial number of the go-e device.
+      example: 012345
+      required: true
+      selector:
+        text:
+    key:
+      name: Config key
+      description: The key of the config parameter you want to change.
+      example: fna
+      required: true
+      selector:
+        select:
+          options:
+            - isn
+    value:
+      name: Value
+      description: The new value to set for this config parameter.
+      example: "go-eController"
+      required: true
+      selector:
+        text:

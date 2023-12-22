@@ -1,0 +1,25 @@
+{
+  "config": {
+    "flow_title": "{name}",
+    "step": {
+      "discovery_confirm": {
+        "description": "[%key:common::config_flow::description%]"
+      },
+      "user": {
+        "description": "[%key:common::config_flow::description%]",
+        "data": {
+          "serial_number": "[%key:common::config_flow::data::topic_prefix%]",
+          "topic_prefix": "[%key:common::config_flow::data::topic_prefix%]"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "invalid_auth": "[%key:common::config_flow::error::invalid_auth%]",
+      "unknown": "[%key:common::config_flow::error::unknown%]"
+    },
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "domain": "goecontroller_mqtt",
+  "name": "go-eController (MQTT)",
+  "codeowners": [
+    "@karloskar"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "mqtt"
+  ],
+  "documentation": "https://github.com/karloskar/homeassistant-goecontroller-mqtt",
+  "homekit": {},
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/karloskar/homeassistant-goecontroller-mqtt/issues",
+  "mqtt": [
+    "go-eController/+/isv",
+    "/go-eController/+/isv"
+  ],
+  "requirements": [],
+  "ssdp": [],
+  "version": "0.0.1",
+  "zeroconf": []
+}

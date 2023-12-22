@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "homeassistant-goecontroller-mqtt"
+version = "0.0.1"
+description = "A Home Assistant custom component for the go-eController"
+authors = ["KO. Mattsson <karloskarmattsson@gmail.com>"]
+license = "APACHE"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+pytest-cov = "^4.1.0"
+pytest-homeassistant-custom-component = "^0.13.85"
+aiohttp_cors = "^0.7.0"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+ignore = ["E711", "E712"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

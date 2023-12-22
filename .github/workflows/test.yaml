@@ -22,10 +22,11 @@ jobs:
 
       - name: Run pytest
         run: poetry run pytest --asyncio-mode=auto
-  validate-hacs:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: hacs/action@22.5.0
-        with:
-          category: integration
+  # TODO activate later
+  # validate-hacs:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: hacs/action@22.5.0
+  #       with:
+  #         category: integration

@@ -2,7 +2,7 @@
 
 This is a Home Assistant custom component written for the [go-eController](https://go-e.com/en/products/go-e-controller).
 
-If it wouldn't have been for @syssi and his [go-eCharger component](https://github.com/syssi/homeassistant-goecharger-mqtt) this component may never have been created. A huge thanks to him :heart:!
+If it wouldn't have been for [**@syssi**](https://github.com/syssi) and his [go-eCharger component](https://github.com/syssi/homeassistant-goecharger-mqtt) this component may never have been created. A huge thanks to him :heart:!
 
 ![Lovelace entities card](lovelace-entities-card.png "Lovelace entities card")
 

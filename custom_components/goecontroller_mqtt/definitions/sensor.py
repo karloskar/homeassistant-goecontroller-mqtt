@@ -36,12 +36,17 @@ def remove_quotes(value, unused) -> str:
 
 
 def extract_isv(value: str, key: tuple) -> float:
-    """Extract isv values from array."""
+    """Extract isv values from list."""
     list_int, dict_key = key
     if dict_key in ["i", "p"]:
         return round(float(json.loads(value)[int(list_int)][dict_key]), 1)
     if dict_key == "f":
         return round(float(json.loads(value)[int(list_int)][dict_key]) * 100)
+
+
+def extract_ccp(value: str, key: str) -> float:
+    """Extract ccp values from list."""
+    return round(float(json.loads(value)[int(key)]))
 
 
 SENSORS: tuple[GoEControllerSensorEntityDescription, ...] = (
@@ -242,6 +247,72 @@ SENSORS: tuple[GoEControllerSensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=True,
         disabled=False,
+    ),
+    GoEControllerSensorEntityDescription(
+        key="ccp",
+        attribute="0",
+        name="Power usage home",
+        state=extract_ccp,
+        device_class=SensorDeviceClass.POWER,
+        native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_registry_enabled_default=True,
+        disabled=False,
+    ),
+    GoEControllerSensorEntityDescription(
+        key="ccp",
+        name="Power usage grid",
+        device_class=SensorDeviceClass.POWER,
+        native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_registry_enabled_default=True,
+        disabled=False,
+        attribute="1",
+        state=extract_ccp,
+    ),
+    GoEControllerSensorEntityDescription(
+        key="ccp",
+        name="Power usage car",
+        device_class=SensorDeviceClass.POWER,
+        native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_registry_enabled_default=True,
+        disabled=False,
+        attribute="2",
+        state=extract_ccp,
+    ),
+    GoEControllerSensorEntityDescription(
+        key="ccp",
+        name="Power usage solar",
+        device_class=SensorDeviceClass.POWER,
+        native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_registry_enabled_default=True,
+        disabled=False,
+        attribute="3",
+        state=extract_ccp,
+    ),
+    GoEControllerSensorEntityDescription(
+        key="ccp",
+        name="Power usage relay",
+        device_class=SensorDeviceClass.POWER,
+        native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_registry_enabled_default=True,
+        disabled=False,
+        attribute="4",
+        state=extract_ccp,
+    ),
+    GoEControllerSensorEntityDescription(
+        key="ccp",
+        name="Power usage battery",
+        device_class=SensorDeviceClass.POWER,
+        native_unit_of_measurement=UnitOfPower.WATT,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_registry_enabled_default=True,
+        disabled=False,
+        attribute="5",
+        state=extract_ccp,
     ),
     GoEControllerSensorEntityDescription(
         key="fwv",

@@ -1,9 +1,9 @@
 """Definitions for go-eController sensors exposed via MQTT."""
 from __future__ import annotations
 
+import logging
 from collections.abc import Callable
 from dataclasses import dataclass
-import logging
 
 from homeassistant.helpers.entity import EntityDescription
 

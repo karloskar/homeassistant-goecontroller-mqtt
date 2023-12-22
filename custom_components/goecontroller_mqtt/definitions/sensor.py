@@ -46,7 +46,10 @@ def extract_isv(value: str, key: tuple) -> float:
 
 def extract_ccp(value: str, key: str) -> float:
     """Extract ccp values from list."""
-    return round(float(json.loads(value)[int(key)]))
+    try:
+        return round(float(json.loads(value)[int(key)]))
+    except TypeError:
+        return 0
 
 
 SENSORS: tuple[GoEControllerSensorEntityDescription, ...] = (

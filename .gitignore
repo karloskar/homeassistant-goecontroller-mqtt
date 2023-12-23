@@ -3,6 +3,8 @@ __pycache__/
 *$py.class
 *.bak
 
+.ruff_cache
+
 .idea/
 .pytest_cache/*
 .coverage

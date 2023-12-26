@@ -254,7 +254,7 @@ SENSORS: tuple[GoEControllerSensorEntityDescription, ...] = (
     GoEControllerSensorEntityDescription(
         key="ccp",
         attribute="0",
-        name="Power usage home",
+        name="Power (home)",
         state=extract_ccp,
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
@@ -264,7 +264,7 @@ SENSORS: tuple[GoEControllerSensorEntityDescription, ...] = (
     ),
     GoEControllerSensorEntityDescription(
         key="ccp",
-        name="Power usage grid",
+        name="Power (grid)",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -275,7 +275,7 @@ SENSORS: tuple[GoEControllerSensorEntityDescription, ...] = (
     ),
     GoEControllerSensorEntityDescription(
         key="ccp",
-        name="Power usage car",
+        name="Power (car)",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -286,7 +286,7 @@ SENSORS: tuple[GoEControllerSensorEntityDescription, ...] = (
     ),
     GoEControllerSensorEntityDescription(
         key="ccp",
-        name="Power usage relay",
+        name="Power (relay)",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -297,7 +297,7 @@ SENSORS: tuple[GoEControllerSensorEntityDescription, ...] = (
     ),
     GoEControllerSensorEntityDescription(
         key="ccp",
-        name="Power usage solar",
+        name="Power (solar)",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -308,7 +308,7 @@ SENSORS: tuple[GoEControllerSensorEntityDescription, ...] = (
     ),
     GoEControllerSensorEntityDescription(
         key="ccp",
-        name="Power usage battery",
+        name="Power (battery)",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,

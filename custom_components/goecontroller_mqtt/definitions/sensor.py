@@ -286,7 +286,7 @@ SENSORS: tuple[GoEControllerSensorEntityDescription, ...] = (
     ),
     GoEControllerSensorEntityDescription(
         key="ccp",
-        name="Power usage solar",
+        name="Power usage relay",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,
@@ -297,7 +297,7 @@ SENSORS: tuple[GoEControllerSensorEntityDescription, ...] = (
     ),
     GoEControllerSensorEntityDescription(
         key="ccp",
-        name="Power usage relay",
+        name="Power usage solar",
         device_class=SensorDeviceClass.POWER,
         native_unit_of_measurement=UnitOfPower.WATT,
         state_class=SensorStateClass.MEASUREMENT,

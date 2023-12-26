@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "homeassistant-goecontroller-mqtt"
-version = "0.0.2"
+version = "0.0.3"
 description = "A Home Assistant custom component for the go-eController"
 authors = ["KO. Mattsson <karloskarmattsson@gmail.com>"]
 license = "APACHE"

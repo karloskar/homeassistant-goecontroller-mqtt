@@ -16,4 +16,4 @@ Use the Web UI (Config flow) to add the "go-eController" integration. You have t
 
 ## References
 
-- https://github.com/goecontroller/go-eController-API-v2/blob/main/apikeys-en.md
+- https://github.com/goecharger/go-eController-API-v2/blob/main/apikeys-en.md

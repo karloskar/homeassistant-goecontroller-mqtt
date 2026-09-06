@@ -14,7 +14,7 @@ jobs:
 
       # uv provisions the interpreter required by requires-python in pyproject.toml
       - name: Install uv
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.0.1
         with:
           version: "0.12.10"
           enable-cache: true

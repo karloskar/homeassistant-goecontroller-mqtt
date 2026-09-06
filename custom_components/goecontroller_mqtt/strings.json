@@ -1,25 +1,25 @@
 {
   "config": {
+    "abort": {
+      "already_configured": "Device is already configured"
+    },
     "flow_title": "{name}",
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "invalid_auth": "Invalid authentication",
+      "unknown": "Unexpected error"
+    },
     "step": {
       "discovery_confirm": {
-        "description": "[%key:common::config_flow::description%]"
+        "description": "Do you want to setup {name}?"
       },
       "user": {
-        "description": "[%key:common::config_flow::description%]",
+        "description": "Please provide the serial number of your device",
         "data": {
-          "serial_number": "[%key:common::config_flow::data::topic_prefix%]",
-          "topic_prefix": "[%key:common::config_flow::data::topic_prefix%]"
+          "serial_number": "Serial number",
+          "topic_prefix": "Base topic"
         }
       }
-    },
-    "error": {
-      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
-      "invalid_auth": "[%key:common::config_flow::error::invalid_auth%]",
-      "unknown": "[%key:common::config_flow::error::unknown%]"
-    },
-    "abort": {
-      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
     }
   }
 }

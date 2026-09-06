@@ -1,4 +1,5 @@
 """Test the go-eController (MQTT) config flow."""
+
 from unittest.mock import patch
 
 from homeassistant import config_entries
@@ -17,12 +18,15 @@ async def test_form(hass: HomeAssistant) -> None:
     assert result["type"] == FlowResultType.FORM
     assert result["errors"] is None
 
-    with patch(
-        "custom_components.goecontroller_mqtt.config_flow.PlaceholderHub.validate_device_topic",
-        return_value=True,
-    ), patch(
-        "custom_components.goecontroller_mqtt.async_setup_entry", return_value=True
-    ) as mock_setup_entry:
+    with (
+        patch(
+            "custom_components.goecontroller_mqtt.config_flow.PlaceholderHub.validate_device_topic",
+            return_value=True,
+        ),
+        patch(
+            "custom_components.goecontroller_mqtt.async_setup_entry", return_value=True
+        ) as mock_setup_entry,
+    ):
         result2 = await hass.config_entries.flow.async_configure(
             result["flow_id"],
             {"serial_number": "012345", "topic_prefix": "/go-eController"},

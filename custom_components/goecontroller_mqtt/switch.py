@@ -1,4 +1,5 @@
 """The go-eController (MQTT) switch."""
+
 import logging
 
 from homeassistant import config_entries, core

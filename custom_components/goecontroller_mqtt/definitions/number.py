@@ -1,4 +1,5 @@
 """Definitions for go-eController numbers exposed via MQTT."""
+
 from __future__ import annotations
 
 import logging

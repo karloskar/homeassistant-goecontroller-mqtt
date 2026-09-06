@@ -1,9 +1,11 @@
 """Definitions for go-eController sensors exposed via MQTT."""
+
 from __future__ import annotations
 
 import logging
 from collections.abc import Callable
 from dataclasses import dataclass
+from typing import ClassVar
 
 from homeassistant.helpers.entity import EntityDescription
 
@@ -13,7 +15,7 @@ _LOGGER = logging.getLogger(__name__)
 class GoEControllerStatusCodes:
     """Status code container."""
 
-    psm = {
+    psm: ClassVar[dict[int, str]] = {
         1: "1 Phase",
         2: "3 Phases",
     }

@@ -1,4 +1,5 @@
 """MQTT component mixins and helpers."""
+
 from homeassistant import config_entries
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity import Entity
@@ -35,8 +36,8 @@ class GoEControllerEntity(Entity):
         if isinstance(description.attribute, tuple):
             parsed_attribute = "-".join(description.attribute)
 
-        self._attr_unique_id = "-".join(
-            [serial_number, description.domain, description.key, parsed_attribute]
+        self._attr_unique_id = (
+            f"{serial_number}-{description.domain}-{description.key}-{parsed_attribute}"
         )
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, serial_number)},

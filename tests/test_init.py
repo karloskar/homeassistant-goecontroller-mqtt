@@ -1,4 +1,5 @@
 """Test setting up the go-eController (MQTT) integration."""
+
 import pytest
 from homeassistant.exceptions import ServiceValidationError
 from pytest_homeassistant_custom_component.common import MockConfigEntry

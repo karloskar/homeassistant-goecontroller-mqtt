@@ -7,15 +7,15 @@ from dataclasses import dataclass
 from homeassistant.components.number import NumberEntityDescription
 from homeassistant.const import (
     CURRENCY_CENT,
+    EntityCategory,
 )
-from homeassistant.helpers.entity import EntityCategory
 
 from . import GoEControllerEntityDescription
 
 _LOGGER = logging.getLogger(__name__)
 
 
-@dataclass
+@dataclass(frozen=True, kw_only=True)
 class GoEControllerNumberEntityDescription(GoEControllerEntityDescription, NumberEntityDescription):
     """Number entity description for go-eController."""
 

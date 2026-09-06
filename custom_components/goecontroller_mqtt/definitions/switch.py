@@ -5,14 +5,14 @@ import logging
 from dataclasses import dataclass
 
 from homeassistant.components.switch import SwitchEntityDescription
-from homeassistant.helpers.entity import EntityCategory
+from homeassistant.const import EntityCategory
 
 from . import GoEControllerEntityDescription
 
 _LOGGER = logging.getLogger(__name__)
 
 
-@dataclass
+@dataclass(frozen=True, kw_only=True)
 class GoEControllerSwitchEntityDescription(GoEControllerEntityDescription, SwitchEntityDescription):
     """Switch entity description for go-eController."""
 

@@ -12,18 +12,18 @@ from homeassistant.components.sensor import (
 )
 from homeassistant.const import (
     PERCENTAGE,
+    EntityCategory,
     SIGNAL_STRENGTH_DECIBELS,
     UnitOfElectricCurrent,
     UnitOfPower,
 )
-from homeassistant.helpers.entity import EntityCategory
 
 from . import GoEControllerEntityDescription
 
 _LOGGER = logging.getLogger(__name__)
 
 
-@dataclass
+@dataclass(frozen=True, kw_only=True)
 class GoEControllerSensorEntityDescription(GoEControllerEntityDescription, SensorEntityDescription):
     """Sensor entity description for go-eController."""
 

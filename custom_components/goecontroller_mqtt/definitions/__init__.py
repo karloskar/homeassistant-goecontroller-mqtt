@@ -19,7 +19,7 @@ class GoEControllerStatusCodes:
     }
 
 
-@dataclass
+@dataclass(frozen=True, kw_only=True)
 class GoEControllerEntityDescription(EntityDescription):
     """Generic entity description for go-eController."""
 

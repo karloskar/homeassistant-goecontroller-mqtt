@@ -67,4 +67,6 @@ class GoEControllerNumber(GoEControllerEntity, NumberEntity):
 
             self.async_write_ha_state()
 
-        await mqtt.async_subscribe(self.hass, self._topic, message_received, 1)
+        self.async_on_remove(
+            await mqtt.async_subscribe(self.hass, self._topic, message_received, 1)
+        )

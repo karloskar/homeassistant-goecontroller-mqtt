@@ -1,6 +1,6 @@
 [project]
 name = "homeassistant-goecontroller-mqtt"
-version = "0.0.3"
+version = "0.1.0"
 description = "A Home Assistant custom component for the go-eController"
 readme = "README.md"
 authors = [

@@ -81,3 +81,34 @@ async def test_service_rejects_unknown_serial_number(hass, mqtt_mock) -> None:
             {"serial_number": "999999", "key": "fna", "value": "hello"},
             blocking=True,
         )
+
+
+@pytest.mark.parametrize(
+    ("value", "expected"),
+    [
+        ("5", "5"),
+        ("-12", "-12"),
+        ("1.5", "1.5"),
+        ("-0.25", "-0.25"),
+        ("true", "true"),
+        ("False", "false"),
+        ("hello", '"hello"'),
+        ("nan", '"nan"'),
+    ],
+)
+async def test_service_encodes_value_as_json(hass, mqtt_mock, value, expected) -> None:
+    """Numbers must be published as JSON numbers, everything else as JSON strings."""
+    entry = _add_entry(hass)
+    assert await hass.config_entries.async_setup(entry.entry_id)
+    await hass.async_block_till_done()
+    mqtt_mock.async_publish.reset_mock()
+
+    await hass.services.async_call(
+        DOMAIN,
+        "set_config_key",
+        {"serial_number": "012345", "key": "awp", "value": value},
+        blocking=True,
+    )
+
+    payloads = [call.args[1] for call in mqtt_mock.async_publish.call_args_list]
+    assert payloads == [expected]

@@ -60,11 +60,18 @@ class GoEControllerNumber(GoEControllerEntity, NumberEntity):
                 self._attr_native_value = self.entity_description.state(
                     message.payload, self.entity_description.attribute
                 )
+            elif message.payload == "null":
+                self._attr_native_value = None
             else:
-                if message.payload == "null":
+                try:
+                    self._attr_native_value = float(message.payload)
+                except ValueError:
+                    _LOGGER.warning(
+                        "Ignoring non-numeric payload %s on topic %s",
+                        message.payload,
+                        self._topic,
+                    )
                     self._attr_native_value = None
-                else:
-                    self._attr_native_value = message.payload
 
             self.async_write_ha_state()
 

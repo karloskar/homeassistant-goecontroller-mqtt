@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import json
 import logging
+import math
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
@@ -56,6 +58,29 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
 
 
+def _encode_service_value(value: str) -> str:
+    """Return the JSON encoding of a service call value."""
+    if value in ("true", "True"):
+        return "true"
+    if value in ("false", "False"):
+        return "false"
+
+    try:
+        return json.dumps(int(value))
+    except ValueError:
+        pass
+
+    try:
+        number = float(value)
+    except ValueError:
+        return json.dumps(value)
+
+    if not math.isfinite(number):
+        return json.dumps(value)
+
+    return json.dumps(number)
+
+
 def _topic_prefix_for_serial(hass: HomeAssistant, serial_number: str) -> str:
     """Return the topic prefix configured for a serial number."""
     for entry in hass.config_entries.async_entries(DOMAIN):
@@ -76,15 +101,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         topic_prefix = _topic_prefix_for_serial(hass, serial_number)
         topic = f"{topic_prefix}/{serial_number}/{key}/set"
 
-        if not value.isnumeric():
-            if value in ["true", "True"]:
-                value = "true"
-            elif value in ["false", "False"]:
-                value = "false"
-            else:
-                value = f'"{value}"'
-
-        await mqtt.async_publish(hass, topic, value)
+        await mqtt.async_publish(hass, topic, _encode_service_value(value))
 
     hass.services.async_register(
         DOMAIN,
